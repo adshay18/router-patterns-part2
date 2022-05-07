@@ -9,7 +9,6 @@ const Color = ({ colors }) => {
 			colorVal = c.value;
 		}
 	}
-	console.log(colorVal);
 	return (
 		<div className="Color" style={{ backgroundColor: colorVal }}>
 			<p>THIS IS {color.toUpperCase()}</p>

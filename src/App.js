@@ -5,15 +5,8 @@ import ColorIndex from './ColorIndex';
 import Color from './Color';
 import NewColorForm from './NewColorForm';
 
-function App() {
-	const colors = JSON.parse(localStorage.getItem('colors')) || [
-		{ name: 'red', value: 'rgb(255, 0, 0)' },
-		{ name: 'green', value: 'rgb(0, 255, 0)' },
-		{ name: 'blue', value: 'rgb(0, 0, 255)' }
-	];
+function App({ colors }) {
 	const [ colorList, setColorList ] = useState(colors);
-
-	useEffect(() => localStorage.setItem('colors', JSON.stringify(colors), [ colors ]));
 
 	const addColor = (color) => {
 		setColorList([ ...colorList, color ]);
@@ -39,4 +32,11 @@ function App() {
 	);
 }
 
+App.defaultProps = {
+	colors: [
+		{ name: 'red', value: 'rgb(255, 0, 0)' },
+		{ name: 'green', value: 'rgb(0, 255, 0)' },
+		{ name: 'blue', value: 'rgb(0, 0, 255)' }
+	]
+};
 export default App;

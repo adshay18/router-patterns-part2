@@ -1,10 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
 import './Color.css';
 
-const Color = () => {
-	const { color, value } = useParams();
+const Color = ({ colors }) => {
+	const { color } = useParams();
+	let colorVal;
+	for (let c of colors) {
+		if (c.name === color) {
+			colorVal = c.value;
+		}
+	}
+	console.log(colorVal);
 	return (
-		<div className="Color" style={{ backgroundColor: value }}>
+		<div className="Color" style={{ backgroundColor: colorVal }}>
 			<p>THIS IS {color.toUpperCase()}</p>
 			<p>WOW... so cool</p>
 			<Link to="/colors">Pick a different one already...</Link>

@@ -1,0 +1,24 @@
+.ColorIndex-header {
+	color: white;
+	background-color: black;
+	padding: 30px;
+}
+
+.ColorIndex-header a {
+	color: white;
+	text-decoration: none;
+}
+
+.ColorIndex-header a:hover {
+	text-decoration: underline;
+}
+
+.ColorIndex-list a {
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.ColorIndex-list a:hover {
+	text-decoration: underline;
+}

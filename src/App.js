@@ -11,7 +11,7 @@ function App() {
 					<Route exact path="/colors">
 						<ColorIndex />
 					</Route>
-					<Route exact path="/colors/:color">
+					<Route exact path="/colors/:color/:value">
 						<Color />
 					</Route>
 					<Redirect to="/colors" />

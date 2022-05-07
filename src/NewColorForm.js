@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import './NewColorForm.css';
 
 const NewColorForm = ({ addColor }) => {
 	const INITIAL_ENTRY = { name: '', value: '#0000FF' };
@@ -10,7 +11,6 @@ const NewColorForm = ({ addColor }) => {
 		evt.preventDefault();
 		addColor(formData);
 		setFormData(INITIAL_ENTRY);
-		console.log(formData);
 		history.push('/colors');
 	};
 
@@ -23,16 +23,21 @@ const NewColorForm = ({ addColor }) => {
 	};
 
 	return (
-		<div>
+		<div className="NewColorForm">
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="name">Name:</label>
-				<input id="name" name="name" value={formData.name} onChange={handleChange} />
+				<div>
+					<label htmlFor="name">Name: </label>
+					<input id="name" name="name" value={formData.name} onChange={handleChange} />
+				</div>
+				<div>
+					<label htmlFor="value">Value: </label>
+					<input type="color" id="value" name="value" value={formData.value} onChange={handleChange} />
+				</div>
+				<button className="button-5">Add Color</button>
 
-				<label htmlFor="value">Value: </label>
-				<input type="color" id="value" name="value" value={formData.value} onChange={handleChange} />
-				<button>Add Color</button>
+				<br />
+				<Link to="/colors">Go Back</Link>
 			</form>
-			<Link to="/colors">Go Back</Link>
 		</div>
 	);
 };
